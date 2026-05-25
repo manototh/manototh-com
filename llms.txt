@@ -1,0 +1,23 @@
+# Mano Toth
+
+> Dr Mano Toth is a developer documentation engineer in Vienna, Austria. He builds docs-as-code platforms, API and SDK documentation, and AI-assisted content workflows. Head of Documentation at Axiom.
+
+This site is a single-page portfolio. For structured data, see JSON-LD on the home page. For the full profile in one file, use the markdown export below.
+
+## Profile
+
+- [Full profile (markdown)](https://manototh.com/index.html.md): Complete biography, experience, projects, skills, education, and contact details
+
+## Projects
+
+- [Do11y](https://docservable.com): Agent-native documentation observability with AI referrer detection and LLM-based content evaluation
+- [Do11y on GitHub](https://github.com/axiomhq/do11y): Open-source implementation
+- [Placeholder configurator](https://github.com/axiomhq/docs-placeholder-configurator): Configure placeholders in Mintlify docs code examples
+- [Site intro animation](https://github.com/manototh/site-intro-animation): Lightweight JavaScript loading animation
+
+## Optional
+
+- [GitHub](https://github.com/manototh): Open-source repositories
+- [LinkedIn](https://www.linkedin.com/in/manototh): Professional profile
+- [Do11y blog post](https://axiom.co/blog/do11y): Overview of documentation observability at Axiom
+- [Placeholder configurator blog post](https://axiom.co/blog/placeholder-configurator): Product write-up

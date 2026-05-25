@@ -3,8 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mano Toth – Developer Documentation Engineer</title>
-  <meta name="description" content="Personal website of Dr Mano Toth. I create documentation systems that help developers learn, build, and succeed faster.">
+  <title>Mano Toth – Developer documentation engineer</title>
+  <meta name="description" content="Dr Mano Toth builds docs-as-code platforms, API documentation, and AI-assisted developer content. Head of Documentation at Axiom, based in Vienna.">
+  <meta name="author" content="Mano Toth">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://manototh.com/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <link rel="alternate" type="text/markdown" title="LLM-readable profile" href="/index.html.md">
+  <meta name="theme-color" content="#030712">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Mano Toth">
+  <meta property="og:title" content="Mano Toth – Developer documentation engineer">
+  <meta property="og:description" content="Documentation engineer building docs-as-code systems, API docs, and AI tooling for developer experience.">
+  <meta property="og:url" content="https://manototh.com/">
+  <meta property="og:locale" content="en_US">
+  <meta property="profile:first_name" content="Mano">
+  <meta property="profile:last_name" content="Toth">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mano Toth – Developer documentation engineer">
+  <meta name="twitter:description" content="Documentation engineer building docs-as-code systems, API docs, and AI tooling for developer experience.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr Mano Toth",
+    "givenName": "Mano",
+    "familyName": "Toth",
+    "jobTitle": "Developer Documentation Engineer",
+    "email": "manototh@gmail.com",
+    "url": "https://manototh.com",
+    "sameAs": [
+      "https://github.com/manototh",
+      "https://www.linkedin.com/in/manototh"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vienna",
+      "addressCountry": "AT"
+    },
+    "description": "Documentation engineer blending technical writing, developer experience, and AI tooling to create systems that help developers learn, build, and succeed.",
+    "knowsAbout": [
+      "Documentation engineering",
+      "Docs as code",
+      "API documentation",
+      "SDK documentation",
+      "Developer experience",
+      "Technical writing",
+      "GenAI observability",
+      "MCP servers"
+    ],
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "University of Cambridge"},
+      {"@type": "CollegeOrUniversity", "name": "Central European University"},
+      {"@type": "CollegeOrUniversity", "name": "Corvinus University of Budapest"},
+      {"@type": "CollegeOrUniversity", "name": "University of Nottingham"}
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Axiom",
+      "url": "https://axiom.co"
+    },
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Head of Documentation",
+      "occupationLocation": {
+        "@type": "City",
+        "name": "Vienna"
+      }
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -77,11 +149,42 @@
       height: 64px;
     }
 
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 12px;
+      z-index: 200;
+      padding: 8px 16px;
+      background: var(--green-600);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .nav-logo {
       font-weight: 700;
       font-size: 18px;
       color: #fff;
       letter-spacing: -0.5px;
+      text-decoration: none;
     }
 
     .nav-logo span {
@@ -895,12 +998,14 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Navigation -->
-  <nav id="nav">
+  <nav id="nav" aria-label="Primary">
     <div class="nav-inner">
-      <div class="nav-logo">mano<span>.</span></div>
+      <a class="nav-logo" href="#top" aria-label="Mano Toth home">mano<span>.</span></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -918,7 +1023,7 @@
   </nav>
 
   <!-- Hero -->
-  <div class="hero">
+  <header class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-inner">
@@ -926,7 +1031,7 @@
         <span class="dot"></span>
         Based in Vienna, Austria
       </div>
-      <h1>I build docs that<br>help developers<br><span class="green">ship faster.</span></h1>
+      <h1><span class="visually-hidden">Mano Toth. </span>I build docs that<br>help developers<br><span class="green">ship faster.</span></h1>
       <p class="hero-text">Documentation engineer blending technical writing, developer experience, and AI tooling to create systems that help developers learn, build, and succeed.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">
@@ -939,13 +1044,14 @@
         </a>
       </div>
     </div>
-  </div>
+  </header>
 
+  <main id="main">
   <!-- About -->
-  <section class="about" id="about">
+  <section class="about" id="about" aria-labelledby="about-heading">
     <div class="section-inner">
       <div class="section-label fade-in">About</div>
-      <h2 class="section-title fade-in">From Cambridge PhD<br>to developer docs.</h2>
+      <h2 class="section-title fade-in" id="about-heading">From Cambridge PhD<br>to developer docs.</h2>
       <div class="about-grid">
         <div class="about-text fade-in">
           <p>I create documentation systems that help developers learn, build, and succeed faster. Currently heading documentation at Axiom, where I design docs-as-code platforms with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.</p>
@@ -1041,13 +1147,13 @@
               <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
             </div>
             <div class="project-card-links">
-              <a href="https://docservable.com" target="_blank" rel="noopener" title="Documentation">
+              <a href="https://docservable.com" target="_blank" rel="noopener noreferrer" aria-label="Do11y documentation">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
               </a>
-              <a href="https://axiom.co/blog/do11y" target="_blank" rel="noopener" title="Blog post">
+              <a href="https://axiom.co/blog/do11y" target="_blank" rel="noopener noreferrer" aria-label="Do11y blog post">
                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
               </a>
-              <a href="https://github.com/axiomhq/do11y" target="_blank" rel="noopener" title="GitHub">
+              <a href="https://github.com/axiomhq/do11y" target="_blank" rel="noopener noreferrer" aria-label="Do11y on GitHub">
                 <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               </a>
             </div>
@@ -1067,10 +1173,10 @@
               <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
             </div>
             <div class="project-card-links">
-              <a href="https://axiom.co/blog/placeholder-configurator" target="_blank" rel="noopener" title="Blog post">
+              <a href="https://axiom.co/blog/placeholder-configurator" target="_blank" rel="noopener noreferrer" aria-label="Placeholder configurator blog post">
                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
               </a>
-              <a href="https://github.com/axiomhq/docs-placeholder-configurator" target="_blank" rel="noopener" title="GitHub">
+              <a href="https://github.com/axiomhq/docs-placeholder-configurator" target="_blank" rel="noopener noreferrer" aria-label="Placeholder configurator on GitHub">
                 <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               </a>
             </div>
@@ -1090,10 +1196,10 @@
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
             <div class="project-card-links">
-              <a href="https://github.com/manototh/site-intro-animation" target="_blank" rel="noopener" title="GitHub">
+              <a href="https://github.com/manototh/site-intro-animation" target="_blank" rel="noopener noreferrer" aria-label="Site intro animation on GitHub">
                 <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               </a>
-              <a href="https://jsfiddle.net/manototh/d6xz38fm/" target="_blank" rel="noopener" title="JSFiddle demo">
+              <a href="https://jsfiddle.net/manototh/d6xz38fm/" target="_blank" rel="noopener noreferrer" aria-label="Site intro animation demo on JSFiddle">
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
               </a>
             </div>
@@ -1257,7 +1363,7 @@
               <div class="contact-link-value">manototh</div>
             </div>
           </a>
-          <a href="https://linkedin.com/in/manototh" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://www.linkedin.com/in/manototh" target="_blank" rel="noopener noreferrer" class="contact-link">
             <div class="contact-link-icon">
               <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </div>
@@ -1270,6 +1376,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -1278,7 +1385,7 @@
       <div class="footer-links">
         <a href="mailto:manototh@gmail.com">Email</a>
         <a href="https://github.com/manototh" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/manototh" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/manototh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </footer>
