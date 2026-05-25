@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mano Toth – Developer Documentation Engineer</title>
+  <meta name="description" content="Personal website of Dr Mano Toth. I create documentation systems that help developers learn, build, and succeed faster.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-50: #ecfdf5;
+      --green-100: #d1fae5;
+      --green-200: #a7f3d0;
+      --green-300: #6ee7b7;
+      --green-400: #34d399;
+      --green-500: #10b981;
+      --green-600: #059669;
+      --green-700: #047857;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --gray-950: #030712;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-800);
+      background: var(--gray-950);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── Navigation ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 24px;
+      transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: var(--green-400);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--green-400);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(16, 185, 129, 0.06), transparent);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black, transparent);
+      -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black, transparent);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green-400);
+      margin-bottom: 32px;
+    }
+
+    .hero-label .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green-400);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .green {
+      background: linear-gradient(135deg, var(--green-400), var(--green-300));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text {
+      font-size: 20px;
+      color: var(--gray-400);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--green-600);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-500);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--gray-300);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ─── Sections ─── */
+    section {
+      padding: 120px 24px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-400);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: #fff;
+      margin-bottom: 56px;
+      line-height: 1.1;
+    }
+
+    /* ─── About ─── */
+    .about {
+      background: var(--gray-950);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 17px;
+      color: var(--gray-400);
+      line-height: 1.8;
+    }
+
+    .about-text p + p {
+      margin-top: 20px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(16, 185, 129, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--green-400);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+
+    /* ─── Experience ─── */
+    .experience {
+      background: linear-gradient(180deg, var(--gray-950) 0%, rgba(16, 185, 129, 0.02) 50%, var(--gray-950) 100%);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--green-600), var(--green-600) 60%, transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -36px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green-500);
+      box-shadow: 0 0 0 4px var(--gray-950);
+    }
+
+    .timeline-item:first-child .timeline-dot {
+      background: var(--green-400);
+      box-shadow: 0 0 0 4px var(--gray-950), 0 0 12px rgba(16, 185, 129, 0.4);
+    }
+
+    .timeline-dates {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-bottom: 6px;
+    }
+
+    .timeline-role {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .timeline-company {
+      font-size: 15px;
+      color: var(--green-400);
+      margin-bottom: 12px;
+    }
+
+    .timeline-desc {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-desc li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 15px;
+      color: var(--gray-400);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    .timeline-desc li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green-700);
+    }
+
+    /* ─── Projects ─── */
+    .projects {
+      background: var(--gray-950);
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: rgba(16, 185, 129, 0.25);
+      background: rgba(16, 185, 129, 0.03);
+      transform: translateY(-3px);
+    }
+
+    .project-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .project-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--green-400);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .project-card-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .project-card-links a {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .project-card-links a:hover {
+      background: rgba(16, 185, 129, 0.15);
+    }
+
+    .project-card-links a svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--gray-400);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .project-card-links a:hover svg {
+      stroke: var(--green-400);
+    }
+
+    .project-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 15px;
+      color: var(--gray-400);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .project-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .project-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--green-400);
+      border: 1px solid rgba(16, 185, 129, 0.15);
+    }
+
+    /* ─── Skills ─── */
+    .skills {
+      background: linear-gradient(180deg, var(--gray-950) 0%, rgba(16, 185, 129, 0.02) 50%, var(--gray-950) 100%);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .skill-category {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .skill-category h3 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray-300);
+      margin-bottom: 20px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-item {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--green-300);
+      border: 1px solid rgba(16, 185, 129, 0.12);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .skill-item:hover {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .skill-item.alt {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--gray-300);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .skill-item.alt:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* ─── Education ─── */
+    .education {
+      background: var(--gray-950);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .edu-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.3s;
+    }
+
+    .edu-card:hover {
+      border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .edu-card-degree {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .edu-card-school {
+      font-size: 14px;
+      color: var(--green-400);
+      margin-bottom: 6px;
+    }
+
+    .edu-card-dates {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+
+    /* ─── Contact ─── */
+    .contact {
+      background: linear-gradient(180deg, var(--gray-950), rgba(16, 185, 129, 0.04));
+      padding-bottom: 80px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-text {
+      font-size: 17px;
+      color: var(--gray-400);
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: rgba(16, 185, 129, 0.25);
+      background: rgba(16, 185, 129, 0.04);
+      transform: translateX(4px);
+    }
+
+    .contact-link-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-link-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--green-400);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-link-label {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-bottom: 2px;
+    }
+
+    .contact-link-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* ─── Languages strip ─── */
+    .languages-strip {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .lang {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-name {
+      font-size: 14px;
+      color: var(--gray-300);
+      font-weight: 500;
+    }
+
+    .lang-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid var(--green-500);
+    }
+
+    .lang-dot.filled {
+      background: var(--green-500);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 32px 24px;
+      background: var(--gray-950);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--green-400);
+    }
+
+    /* ─── Scroll animations ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .project-cards,
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      section {
+        padding: 80px 20px;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(3, 7, 18, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+        font-size: 16px;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+
+      .languages-strip {
+        gap: 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">mano<span>.</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-label">
+        <span class="dot"></span>
+        Based in Vienna, Austria
+      </div>
+      <h1>I build docs that<br>help developers<br><span class="green">ship faster.</span></h1>
+      <p class="hero-text">Documentation engineer blending technical writing, developer experience, and AI tooling to create systems that help developers learn, build, and succeed.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">
+          Get in touch
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#projects" class="btn btn-ghost">
+          View projects
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="section-label fade-in">About</div>
+      <h2 class="section-title fade-in">From Cambridge PhD<br>to developer docs.</h2>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <p>I create documentation systems that help developers learn, build, and succeed faster. Currently heading documentation at Axiom, where I design docs-as-code platforms with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.</p>
+          <p>My path started in academia with a PhD from the University of Cambridge, then moved into technical writing and developer experience. I've built documentation teams from scratch, redesigned information architectures, and created AI-powered tools that make docs work harder for their users.</p>
+        </div>
+        <div class="about-stats fade-in">
+          <div class="stat-card">
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Years in developer docs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Doc teams built from scratch</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">50%</div>
+            <div class="stat-label">Conversion rate increase at Nutrient</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Languages spoken</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="experience" id="experience">
+    <div class="section-inner">
+      <div class="section-label fade-in">Experience</div>
+      <h2 class="section-title fade-in">Where I've worked.</h2>
+      <div class="timeline fade-in">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Jan 2024 – Present</div>
+          <div class="timeline-role">Head of Documentation</div>
+          <div class="timeline-company">Axiom</div>
+          <ul class="timeline-desc">
+            <li>Design and maintain a docs-as-code platform with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.</li>
+            <li>Author and maintain API documentation, SDK guides, developer tutorials, and code samples for a growing platform.</li>
+            <li>Write GenAI observability docs (AI SDK integrations, MCP servers, agent skills) and build prompt-driven workflows that generate changelog entries and improve docs from support tickets.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Jul 2022 – Sep 2023</div>
+          <div class="timeline-role">Head of Documentation & Developer Experience</div>
+          <div class="timeline-company">Nutrient (formerly PSPDFKit)</div>
+          <ul class="timeline-desc">
+            <li>Built a documentation team and developer experience program from scratch for mature SDK products with REST API and integrations.</li>
+            <li>Redesigned information architecture and developer onboarding flows, increasing documentation conversion rate by 50% in three months.</li>
+            <li>Created SDK documentation, API references, and developer tutorials across iOS, Android, .NET, and web apps.</li>
+            <li>Built an OpenAI-powered documentation chatbot grounded in product docs.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Sep 2020 – Jul 2022</div>
+          <div class="timeline-role">Lead Technical Writer & Documentation Engineer</div>
+          <div class="timeline-company">Adverity</div>
+          <ul class="timeline-desc">
+            <li>Built and led a documentation team, establishing docs-as-code workflows with Git, CI/CD pipelines, and automated publishing.</li>
+            <li>Designed and implemented a custom documentation platform, defining content architecture and contribution standards for engineering teams.</li>
+            <li>Wrote REST API documentation, integration guides, and developer onboarding materials for a data platform serving enterprise customers.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Apr 2018 – Sep 2020</div>
+          <div class="timeline-role">Technical Writer</div>
+          <div class="timeline-company">Tricentis & Omnit</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <div class="section-inner">
+      <div class="section-label fade-in">Projects</div>
+      <h2 class="section-title fade-in">Open-source work.</h2>
+      <div class="project-cards fade-in">
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <div class="project-card-links">
+              <a href="https://docservable.com" target="_blank" rel="noopener" title="Documentation">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
+              </a>
+              <a href="https://axiom.co/blog/do11y" target="_blank" rel="noopener" title="Blog post">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+              </a>
+              <a href="https://github.com/axiomhq/do11y" target="_blank" rel="noopener" title="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>Do11y</h3>
+          <p>Agent-native documentation observability with AI referrer detection and LLM-based content evaluation. Collects behavioral signals to show where readers succeed or struggle. Presented at Write the Docs Portland 2026.</p>
+          <div class="project-card-tags">
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">Observability</span>
+            <span class="project-tag">AI</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+            </div>
+            <div class="project-card-links">
+              <a href="https://axiom.co/blog/placeholder-configurator" target="_blank" rel="noopener" title="Blog post">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+              </a>
+              <a href="https://github.com/axiomhq/docs-placeholder-configurator" target="_blank" rel="noopener" title="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>Placeholder Configurator</h3>
+          <p>Tool for configuring placeholders in code examples on Mintlify docs sites. Lets users customize code snippets with their own values before copying.</p>
+          <div class="project-card-tags">
+            <span class="project-tag">Mintlify</span>
+            <span class="project-tag">DX</span>
+            <span class="project-tag">Open Source</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="project-card-links">
+              <a href="https://github.com/manototh/site-intro-animation" target="_blank" rel="noopener" title="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+              <a href="https://jsfiddle.net/manototh/d6xz38fm/" target="_blank" rel="noopener" title="JSFiddle demo">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>Site Intro Animation</h3>
+          <p>Tiny, fast, pure JavaScript solution to display a short, customized animation while your website loads.</p>
+          <div class="project-card-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">SVG</span>
+            <span class="project-tag">Open Source</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills" id="skills">
+    <div class="section-inner">
+      <div class="section-label fade-in">Skills</div>
+      <h2 class="section-title fade-in">What I work with.</h2>
+      <div class="skills-grid fade-in">
+
+        <div class="skill-category">
+          <h3>Technical</h3>
+          <div class="skill-list">
+            <span class="skill-item">JavaScript</span>
+            <span class="skill-item">TypeScript</span>
+            <span class="skill-item">React</span>
+            <span class="skill-item">Next.js</span>
+            <span class="skill-item">HTML</span>
+            <span class="skill-item">CSS</span>
+            <span class="skill-item">REST APIs</span>
+            <span class="skill-item">Git / GitHub</span>
+            <span class="skill-item">KQL</span>
+            <span class="skill-item">Markdown / MDX</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Documentation & DX</h3>
+          <div class="skill-list">
+            <span class="skill-item alt">Docs as code</span>
+            <span class="skill-item alt">API docs</span>
+            <span class="skill-item alt">SDK docs</span>
+            <span class="skill-item alt">Information architecture</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>AI & Agents</h3>
+          <div class="skill-list">
+            <span class="skill-item">Cursor</span>
+            <span class="skill-item">Claude Code</span>
+            <span class="skill-item">MCP</span>
+            <span class="skill-item">Agent skills</span>
+            <span class="skill-item">LLM evaluation</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Tooling & Platforms</h3>
+          <div class="skill-list">
+            <span class="skill-item alt">Vercel</span>
+            <span class="skill-item alt">VS Code</span>
+            <span class="skill-item alt">Figma</span>
+            <span class="skill-item alt">Jira</span>
+            <span class="skill-item alt">Notion</span>
+            <span class="skill-item alt">Google Analytics</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="education" id="education">
+    <div class="section-inner">
+      <div class="section-label fade-in">Education</div>
+      <h2 class="section-title fade-in">Where I studied.</h2>
+      <div class="edu-grid fade-in">
+
+        <div class="edu-card">
+          <div class="edu-card-degree">PhD Politics & International Studies</div>
+          <div class="edu-card-school">University of Cambridge</div>
+          <div class="edu-card-dates">2012 – 2017</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-card-degree">MA Political Science</div>
+          <div class="edu-card-school">Central European University</div>
+          <div class="edu-card-dates">2010 – 2011</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-card-degree">BA International Relations</div>
+          <div class="edu-card-school">Corvinus University of Budapest</div>
+          <div class="edu-card-dates">2007 – 2010</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-card-degree">BSc Economics</div>
+          <div class="edu-card-school">University of Nottingham</div>
+          <div class="edu-card-dates">2006 – 2009</div>
+        </div>
+
+      </div>
+
+      <div class="languages-strip fade-in">
+        <div class="lang">
+          <span class="lang-name">English</span>
+          <div class="lang-dots"><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span></div>
+        </div>
+        <div class="lang">
+          <span class="lang-name">French</span>
+          <div class="lang-dots"><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span></div>
+        </div>
+        <div class="lang">
+          <span class="lang-name">Hungarian</span>
+          <div class="lang-dots"><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span></div>
+        </div>
+        <div class="lang">
+          <span class="lang-name">German</span>
+          <div class="lang-dots"><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot"></span></div>
+        </div>
+        <div class="lang">
+          <span class="lang-name">Spanish</span>
+          <div class="lang-dots"><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot filled"></span><span class="lang-dot"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="section-label fade-in">Contact</div>
+      <h2 class="section-title fade-in">Let's connect.</h2>
+      <div class="contact-grid fade-in">
+        <div class="contact-text">
+          <p>I'm always interested in talking about documentation systems, developer experience, and how AI is changing the way we build and consume technical content. Drop me a line if you'd like to collaborate or just chat.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:manototh@gmail.com" class="contact-link">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            </div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">manototh@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://github.com/manototh" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            </div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">manototh</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/manototh" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">manototh</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-text">&copy; 2026 Mano Toth</div>
+      <div class="footer-links">
+        <a href="mailto:manototh@gmail.com">Email</a>
+        <a href="https://github.com/manototh" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/manototh" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById("nav");
+    const toggle = document.getElementById("mobileToggle");
+    const links = document.getElementById("navLinks");
+
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 40);
+    });
+
+    toggle.addEventListener("click", () => {
+      links.classList.toggle("open");
+    });
+
+    links.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => links.classList.remove("open"));
+    });
+
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
