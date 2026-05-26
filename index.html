@@ -236,9 +236,10 @@
     /* ─── Hero ─── */
     .hero {
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
-      padding: 0 24px;
+      padding: 96px 24px 64px;
       position: relative;
       overflow: hidden;
     }
@@ -269,20 +270,42 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1fr minmax(200px, 320px);
-      gap: 48px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) clamp(200px, 28vw, 300px);
+      grid-template-rows: auto auto auto auto;
+      column-gap: 40px;
+      row-gap: 24px;
+      align-items: start;
     }
 
-    .hero-content {
-      min-width: 0;
+    .hero-label {
+      grid-column: 1;
+      grid-row: 1;
     }
 
     .hero-photo {
+      grid-column: 2;
+      grid-row: 1 / 5;
       position: relative;
+      align-self: center;
       justify-self: end;
       width: 100%;
-      max-width: 320px;
+      max-width: 300px;
+      margin: 0;
+    }
+
+    .hero h1 {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .hero-text {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .hero-cta {
+      grid-column: 1;
+      grid-row: 4;
     }
 
     .hero-photo-frame {
@@ -319,6 +342,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      width: fit-content;
+      max-width: 100%;
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.2);
       border-radius: 100px;
@@ -326,7 +351,7 @@
       font-size: 13px;
       font-weight: 500;
       color: var(--green-400);
-      margin-bottom: 32px;
+      margin-bottom: 0;
     }
 
     .hero-label .dot {
@@ -343,12 +368,12 @@
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 80px);
+      font-size: clamp(40px, 6vw, 80px);
       font-weight: 800;
       line-height: 1.05;
       letter-spacing: -2px;
       color: #fff;
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
 
     .hero h1 .green {
@@ -359,17 +384,18 @@
     }
 
     .hero-text {
-      font-size: 20px;
+      font-size: clamp(17px, 2.2vw, 20px);
       color: var(--gray-400);
       max-width: 520px;
       line-height: 1.7;
-      margin-bottom: 40px;
+      margin-bottom: 0;
     }
 
     .hero-cta {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+      padding-top: 8px;
     }
 
     .btn {
@@ -975,18 +1001,57 @@
     }
 
     /* ─── Responsive ─── */
-    @media (max-width: 900px) {
+    @media (max-width: 840px) {
+      .hero {
+        align-items: flex-start;
+        min-height: auto;
+        padding: 88px 20px 56px;
+      }
+
       .hero-inner {
         grid-template-columns: 1fr;
-        gap: 40px;
+        grid-template-rows: none;
+        row-gap: 20px;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .hero-label,
+      .hero-photo,
+      .hero h1,
+      .hero-text,
+      .hero-cta {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .hero-label {
+        justify-self: center;
       }
 
       .hero-photo {
         justify-self: center;
-        max-width: 240px;
-        order: -1;
+        max-width: min(220px, 62vw);
+        margin: 4px 0 8px;
       }
 
+      .hero h1 {
+        font-size: clamp(36px, 9.5vw, 52px);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-text {
+        max-width: 32rem;
+      }
+
+      .hero-cta {
+        justify-content: center;
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 900px) {
       .about-grid,
       .contact-grid {
         grid-template-columns: 1fr;
@@ -1040,12 +1105,42 @@
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        padding-top: 80px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero-label {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+
+      .hero-photo {
+        max-width: min(180px, 58vw);
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 8.5vw, 40px);
+        letter-spacing: -1px;
+      }
+
+      .hero h1 br {
+        display: none;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
       .hero-cta {
         flex-direction: column;
+        max-width: none;
       }
 
       .btn {
         justify-content: center;
+        width: 100%;
       }
 
       .languages-strip {
@@ -1089,29 +1184,27 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-label">
-          <span class="dot"></span>
-          Based in Vienna, Austria
-        </div>
-        <h1><span class="visually-hidden">Mano Toth. </span>I build docs that<br>help developers<br><span class="green">ship faster.</span></h1>
-        <p class="hero-text">Documentation engineer blending technical writing, developer experience, and AI tooling to create systems that help developers learn, build, and succeed.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">
-            Get in touch
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#projects" class="btn btn-ghost">
-            View projects
-            <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-          </a>
-        </div>
+      <div class="hero-label">
+        <span class="dot"></span>
+        Based in Vienna, Austria
       </div>
       <figure class="hero-photo fade-in">
         <div class="hero-photo-frame">
           <img src="assets/profile.jpg" alt="Mano Toth" width="320" height="320" decoding="async">
         </div>
       </figure>
+      <h1><span class="visually-hidden">Mano Toth. </span>I build docs that<br>help developers<br><span class="green">ship faster.</span></h1>
+      <p class="hero-text">Documentation engineer blending technical writing, developer experience, and AI tooling to create systems that help developers learn, build, and succeed.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">
+          Get in touch
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#projects" class="btn btn-ghost">
+          View projects
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
     </div>
   </header>
 
