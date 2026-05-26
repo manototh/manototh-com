@@ -18,6 +18,6 @@ This site is a single-page portfolio. For structured data, see JSON-LD on the ho
 ## Optional
 
 - [GitHub](https://github.com/manototh): Open-source repositories
-- [LinkedIn](https://www.linkedin.com/in/manototh): Professional profile
+- [LinkedIn](https://www.linkedin.com/in/mano-toth/): Professional profile
 - [Do11y blog post](https://axiom.co/blog/do11y): Overview of documentation observability at Axiom
 - [Placeholder configurator blog post](https://axiom.co/blog/placeholder-configurator): Product write-up
