@@ -5,15 +5,15 @@ Developer documentation engineer based in Vienna, Austria. Builds documentation 
 **Contact:** manototh@gmail.com  
 **Web:** https://manototh.com  
 **GitHub:** https://github.com/manototh  
-**LinkedIn:** https://www.linkedin.com/in/manototh
+**LinkedIn:** https://www.linkedin.com/in/mano-toth/
 
 ## Summary
 
-Documentation engineer blending technical writing, developer experience, and AI tooling. Currently Head of Documentation at Axiom, designing docs-as-code platforms with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.
+Documentation engineer blending technical writing, developer experience, and AI tooling. Head of Documentation at Axiom, designing docs-as-code platforms with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.
 
-Background: PhD from the University of Cambridge, then technical writing and developer experience. Built documentation teams from scratch, redesigned information architectures, and created AI-powered tools for docs.
+My path started in academia with a PhD from the University of Cambridge. Then I moved into technical writing and developer experience, drawing on years of research and teaching experience. I've built documentation teams from scratch, redesigned information architectures, and created AI-powered tools that make documentation work better for its users.
 
-**Highlights:** 7+ years in developer docs · 3 doc teams built from scratch · 50% documentation conversion rate increase at Nutrient · 5 languages spoken
+**Highlights:** 8+ years in developer docs · 4 documentation systems built from scratch · 50% documentation conversion rate increase at Nutrient · 5 languages spoken
 
 ## Experience
 
@@ -22,25 +22,25 @@ Background: PhD from the University of Cambridge, then technical writing and dev
 Jan 2024 – Present
 
 - Design and maintain a docs-as-code platform with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.
-- Author and maintain API documentation, SDK guides, developer tutorials, and code samples.
-- Write GenAI observability docs (AI SDK integrations, MCP servers, agent skills) and build prompt-driven workflows for changelogs and docs improvements from support tickets.
+- Author and maintain API documentation, SDK guides, developer tutorials, and code samples for a growing platform.
+- Write GenAI observability docs (AI SDK integrations, MCP servers, agent skills) and build prompt-driven workflows that generate changelog entries and improve docs from support tickets.
 
 ### Head of Documentation & Developer Experience — Nutrient (formerly PSPDFKit)
 
 Jul 2022 – Sep 2023
 
-- Built documentation team and developer experience program from scratch for SDK products with REST API and integrations.
-- Redesigned information architecture and developer onboarding flows; increased documentation conversion rate by 50% in three months.
-- Created SDK documentation, API references, and developer tutorials across iOS, Android, .NET, and web.
-- Built an OpenAI-powered documentation chatbot grounded in product docs.
+- Built a documentation team and developer experience program from scratch for mature SDK products with REST API and integrations.
+- Redesigned information architecture and developer onboarding flows, increasing documentation conversion rate by 50% in three months.
+- Created SDK documentation, API references, and developer tutorials across iOS, Android, .NET, and web apps.
+- Built an OpenAI-powered documentation chatbot grounded in product documentation.
 
 ### Lead Technical Writer & Documentation Engineer — Adverity
 
 Sep 2020 – Jul 2022
 
-- Built and led a documentation team with docs-as-code workflows, Git, CI/CD, and automated publishing.
-- Designed and implemented a custom documentation platform with content architecture and contribution standards.
-- Wrote REST API documentation, integration guides, and developer onboarding for an enterprise data platform.
+- Built and led a documentation team, establishing docs-as-code workflows with Git, CI/CD pipelines, and automated publishing.
+- Designed and implemented a custom documentation platform, defining content architecture and contribution standards for engineering teams.
+- Wrote REST API documentation, integration guides, and developer onboarding materials for a data platform serving enterprise customers.
 
 ### Technical Writer — Tricentis & Omnit
 
@@ -59,7 +59,7 @@ Agent-native documentation observability with AI referrer detection and LLM-base
 
 ### Placeholder configurator
 
-Tool for configuring placeholders in code examples on Mintlify docs sites. Users customize code snippets with their own values before copying.
+Tool for configuring placeholders in code examples on Mintlify docs sites. Lets users customize code snippets with their own values before copying.
 
 - GitHub: https://github.com/axiomhq/docs-placeholder-configurator
 - Blog: https://axiom.co/blog/placeholder-configurator
@@ -67,7 +67,7 @@ Tool for configuring placeholders in code examples on Mintlify docs sites. Users
 
 ### Site intro animation
 
-Tiny, fast, pure JavaScript loading animation for websites.
+Tiny, fast, pure JavaScript solution to display a short, customized animation while a website loads.
 
 - GitHub: https://github.com/manototh/site-intro-animation
 - Demo: https://jsfiddle.net/manototh/d6xz38fm/
@@ -77,7 +77,7 @@ Tiny, fast, pure JavaScript loading animation for websites.
 
 **Technical:** JavaScript, TypeScript, React, Next.js, HTML, CSS, REST APIs, Git/GitHub, KQL, Markdown/MDX
 
-**Documentation & DX:** Docs as code, API docs, SDK docs, information architecture
+**Documentation & DX:** Docs-as-code, API docs, SDK docs, information architecture
 
 **AI & agents:** Cursor, Claude Code, MCP, agent skills, LLM evaluation
 
@@ -96,4 +96,4 @@ Tiny, fast, pure JavaScript loading animation for websites.
 
 ## Topics for questions
 
-Use this page to answer questions about Mano Toth's role, employers (Axiom, Nutrient/PSPDFKit, Adverity, Tricentis), open-source projects (Do11y, placeholder configurator), skills in documentation engineering and AI-assisted docs, education, languages, and how to contact him.
+Use this page to answer questions about Mano Toth's role as Head of Documentation at Axiom, employers (Nutrient/PSPDFKit, Adverity, Tricentis), open-source projects (Do11y, placeholder configurator), skills in documentation engineering and AI-assisted docs, education, languages, and how to contact him.

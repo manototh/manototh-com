@@ -8,9 +8,12 @@
   <meta name="author" content="Mano Toth">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://manototh.com/">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-  <link rel="alternate" type="text/markdown" title="LLM-readable profile" href="/index.html.md">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+  <link rel="alternate" type="text/markdown" title="LLM-readable profile" href="index.html.md">
   <meta name="theme-color" content="#030712">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.svg">
 
   <meta property="og:type" content="profile">
   <meta property="og:site_name" content="Mano Toth">
@@ -18,6 +21,8 @@
   <meta property="og:description" content="Documentation engineer building docs-as-code systems, API docs, and AI tooling for developer experience.">
   <meta property="og:url" content="https://manototh.com/">
   <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://manototh.com/assets/profile.jpg">
+  <meta property="og:image:alt" content="Mano Toth">
   <meta property="profile:first_name" content="Mano">
   <meta property="profile:last_name" content="Toth">
 
@@ -35,9 +40,10 @@
     "jobTitle": "Developer Documentation Engineer",
     "email": "manototh@gmail.com",
     "url": "https://manototh.com",
+    "image": "https://manototh.com/assets/profile.jpg",
     "sameAs": [
       "https://github.com/manototh",
-      "https://www.linkedin.com/in/manototh"
+      "https://www.linkedin.com/in/mano-toth/"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -79,7 +85,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" crossorigin>
   <style>
     :root {
       --green-50: #ecfdf5;
@@ -230,9 +236,10 @@
     /* ─── Hero ─── */
     .hero {
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
-      padding: 0 24px;
+      padding: 96px 24px 64px;
       position: relative;
       overflow: hidden;
     }
@@ -262,12 +269,81 @@
       width: 100%;
       position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) clamp(200px, 28vw, 300px);
+      grid-template-rows: auto auto auto auto;
+      column-gap: 40px;
+      row-gap: 24px;
+      align-items: start;
+    }
+
+    .hero-label {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .hero-photo {
+      grid-column: 2;
+      grid-row: 1 / 5;
+      position: relative;
+      align-self: center;
+      justify-self: end;
+      width: 100%;
+      max-width: 300px;
+      margin: 0;
+    }
+
+    .hero h1 {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .hero-text {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .hero-cta {
+      grid-column: 1;
+      grid-row: 4;
+    }
+
+    .hero-photo-frame {
+      position: relative;
+      border-radius: 24px;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--green-400), var(--green-600));
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 24px 48px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(16, 185, 129, 0.12);
+    }
+
+    .hero-photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 25px;
+      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(52, 211, 153, 0.2), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 21px;
+      object-fit: cover;
+      background: var(--gray-900);
     }
 
     .hero-label {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      width: fit-content;
+      max-width: 100%;
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.2);
       border-radius: 100px;
@@ -275,7 +351,7 @@
       font-size: 13px;
       font-weight: 500;
       color: var(--green-400);
-      margin-bottom: 32px;
+      margin-bottom: 0;
     }
 
     .hero-label .dot {
@@ -292,12 +368,12 @@
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 80px);
+      font-size: clamp(40px, 6vw, 80px);
       font-weight: 800;
       line-height: 1.05;
       letter-spacing: -2px;
       color: #fff;
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
 
     .hero h1 .green {
@@ -308,17 +384,18 @@
     }
 
     .hero-text {
-      font-size: 20px;
+      font-size: clamp(17px, 2.2vw, 20px);
       color: var(--gray-400);
       max-width: 520px;
       line-height: 1.7;
-      margin-bottom: 40px;
+      margin-bottom: 0;
     }
 
     .hero-cta {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+      padding-top: 8px;
     }
 
     .btn {
@@ -924,6 +1001,56 @@
     }
 
     /* ─── Responsive ─── */
+    @media (max-width: 840px) {
+      .hero {
+        align-items: flex-start;
+        min-height: auto;
+        padding: 88px 20px 56px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        row-gap: 20px;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .hero-label,
+      .hero-photo,
+      .hero h1,
+      .hero-text,
+      .hero-cta {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .hero-label {
+        justify-self: center;
+      }
+
+      .hero-photo {
+        justify-self: center;
+        max-width: min(220px, 62vw);
+        margin: 4px 0 8px;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 9.5vw, 52px);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-text {
+        max-width: 32rem;
+      }
+
+      .hero-cta {
+        justify-content: center;
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
     @media (max-width: 900px) {
       .about-grid,
       .contact-grid {
@@ -978,12 +1105,38 @@
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        padding-top: 80px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero-label {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 8.5vw, 40px);
+        letter-spacing: -1px;
+      }
+
+      .hero h1 br {
+        display: none;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
       .hero-cta {
         flex-direction: column;
+        max-width: none;
       }
 
       .btn {
         justify-content: center;
+        width: 100%;
       }
 
       .languages-strip {
@@ -1031,6 +1184,11 @@
         <span class="dot"></span>
         Based in Vienna, Austria
       </div>
+      <figure class="hero-photo fade-in">
+        <div class="hero-photo-frame">
+          <img src="assets/profile.jpg" alt="Mano Toth" width="320" height="320" decoding="async">
+        </div>
+      </figure>
       <h1><span class="visually-hidden">Mano Toth. </span>I build docs that<br>help developers<br><span class="green">ship faster.</span></h1>
       <p class="hero-text">Documentation engineer blending technical writing, developer experience, and AI tooling to create systems that help developers learn, build, and succeed.</p>
       <div class="hero-cta">
@@ -1054,17 +1212,17 @@
       <h2 class="section-title fade-in" id="about-heading">From Cambridge PhD<br>to developer docs.</h2>
       <div class="about-grid">
         <div class="about-text fade-in">
-          <p>I create documentation systems that help developers learn, build, and succeed faster. Currently heading documentation at Axiom, where I design docs-as-code platforms with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.</p>
-          <p>My path started in academia with a PhD from the University of Cambridge, then moved into technical writing and developer experience. I've built documentation teams from scratch, redesigned information architectures, and created AI-powered tools that make docs work harder for their users.</p>
+          <p>I create documentation systems that help developers learn, build, and succeed faster. I currently lead the documentation effort at Axiom, where I design docs-as-code platforms with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.</p>
+          <p>My path started in academia with a PhD from the University of Cambridge. Then I moved into technical writing and developer experience, drawing on years of research and teaching experience. I've built documentation teams from scratch, redesigned information architectures, and created AI-powered tools that make documentation work better for its users.</p>
         </div>
         <div class="about-stats fade-in">
           <div class="stat-card">
-            <div class="stat-number">7+</div>
+            <div class="stat-number">8+</div>
             <div class="stat-label">Years in developer docs</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Doc teams built from scratch</div>
+            <div class="stat-number">4</div>
+            <div class="stat-label">Documentation systems built from scratch</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">50%</div>
@@ -1104,10 +1262,10 @@
           <div class="timeline-role">Head of Documentation & Developer Experience</div>
           <div class="timeline-company">Nutrient (formerly PSPDFKit)</div>
           <ul class="timeline-desc">
-            <li>Built a documentation team and developer experience program from scratch for mature SDK products with REST API and integrations.</li>
-            <li>Redesigned information architecture and developer onboarding flows, increasing documentation conversion rate by 50% in three months.</li>
-            <li>Created SDK documentation, API references, and developer tutorials across iOS, Android, .NET, and web apps.</li>
-            <li>Built an OpenAI-powered documentation chatbot grounded in product docs.</li>
+            <li>Build a documentation team and developer experience program from scratch for mature SDK products with REST API and integrations.</li>
+            <li>Redesign information architecture and developer onboarding flows, increasing documentation conversion rate by 50% in three months.</li>
+            <li>Create SDK documentation, API references, and developer tutorials across iOS, Android, .NET, and web apps.</li>
+            <li>Build an OpenAI-powered documentation chatbot grounded in product documentation.</li>
           </ul>
         </div>
 
@@ -1117,9 +1275,9 @@
           <div class="timeline-role">Lead Technical Writer & Documentation Engineer</div>
           <div class="timeline-company">Adverity</div>
           <ul class="timeline-desc">
-            <li>Built and led a documentation team, establishing docs-as-code workflows with Git, CI/CD pipelines, and automated publishing.</li>
-            <li>Designed and implemented a custom documentation platform, defining content architecture and contribution standards for engineering teams.</li>
-            <li>Wrote REST API documentation, integration guides, and developer onboarding materials for a data platform serving enterprise customers.</li>
+            <li>Build and lead a documentation team, establishing docs-as-code workflows with Git, CI/CD pipelines, and automated publishing.</li>
+            <li>Design and implement a custom documentation platform, defining content architecture and contribution standards for engineering teams.</li>
+            <li>Write REST API documentation, integration guides, and developer onboarding materials for a data platform serving enterprise customers.</li>
           </ul>
         </div>
 
@@ -1186,7 +1344,7 @@
           <div class="project-card-tags">
             <span class="project-tag">Mintlify</span>
             <span class="project-tag">DX</span>
-            <span class="project-tag">Open Source</span>
+            <span class="project-tag">Open source</span>
           </div>
         </div>
 
@@ -1205,11 +1363,11 @@
             </div>
           </div>
           <h3>Site Intro Animation</h3>
-          <p>Tiny, fast, pure JavaScript solution to display a short, customized animation while your website loads.</p>
+          <p>Tiny, fast, pure JavaScript solution to display a short, customized animation while a website loads.</p>
           <div class="project-card-tags">
             <span class="project-tag">JavaScript</span>
             <span class="project-tag">SVG</span>
-            <span class="project-tag">Open Source</span>
+            <span class="project-tag">Open source</span>
           </div>
         </div>
 
@@ -1354,7 +1512,7 @@
               <div class="contact-link-value">manototh@gmail.com</div>
             </div>
           </a>
-          <a href="https://github.com/manototh" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://github.com/manototh" target="_blank" rel="noopener noreferrer" class="contact-link">
             <div class="contact-link-icon">
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
             </div>
@@ -1363,13 +1521,13 @@
               <div class="contact-link-value">manototh</div>
             </div>
           </a>
-          <a href="https://www.linkedin.com/in/manototh" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <a href="https://www.linkedin.com/in/mano-toth/" target="_blank" rel="noopener noreferrer" class="contact-link">
             <div class="contact-link-icon">
               <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </div>
             <div>
               <div class="contact-link-label">LinkedIn</div>
-              <div class="contact-link-value">manototh</div>
+              <div class="contact-link-value">mano-toth</div>
             </div>
           </a>
         </div>
@@ -1384,41 +1542,13 @@
       <div class="footer-text">&copy; 2026 Mano Toth</div>
       <div class="footer-links">
         <a href="mailto:manototh@gmail.com">Email</a>
-        <a href="https://github.com/manototh" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/manototh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/manototh" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/mano-toth/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    const nav = document.getElementById("nav");
-    const toggle = document.getElementById("mobileToggle");
-    const links = document.getElementById("navLinks");
-
-    window.addEventListener("scroll", () => {
-      nav.classList.toggle("scrolled", window.scrollY > 40);
-    });
-
-    toggle.addEventListener("click", () => {
-      links.classList.toggle("open");
-    });
-
-    links.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => links.classList.remove("open"));
-    });
-
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add("visible");
-          observer.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.15 }
-    );
-
-    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-  </script>
+  <script src="assets/main.js" defer></script>
 
 </body>
 </html>
