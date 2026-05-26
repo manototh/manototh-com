@@ -12,12 +12,17 @@
   <link rel="alternate" type="text/markdown" title="LLM-readable profile" href="/index.html.md">
   <meta name="theme-color" content="#030712">
 
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.svg">
+
   <meta property="og:type" content="profile">
   <meta property="og:site_name" content="Mano Toth">
   <meta property="og:title" content="Mano Toth – Developer documentation engineer">
   <meta property="og:description" content="Documentation engineer building docs-as-code systems, API docs, and AI tooling for developer experience.">
   <meta property="og:url" content="https://manototh.com/">
   <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://manototh.com/assets/profile.jpg">
+  <meta property="og:image:alt" content="Mano Toth">
   <meta property="profile:first_name" content="Mano">
   <meta property="profile:last_name" content="Toth">
 
@@ -35,6 +40,7 @@
     "jobTitle": "Developer Documentation Engineer",
     "email": "manototh@gmail.com",
     "url": "https://manototh.com",
+    "image": "https://manototh.com/assets/profile.jpg",
     "sameAs": [
       "https://github.com/manototh",
       "https://www.linkedin.com/in/manototh"
@@ -262,6 +268,51 @@
       width: 100%;
       position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr minmax(200px, 320px);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      min-width: 0;
+    }
+
+    .hero-photo {
+      position: relative;
+      justify-self: end;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .hero-photo-frame {
+      position: relative;
+      border-radius: 24px;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--green-400), var(--green-600));
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 24px 48px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(16, 185, 129, 0.12);
+    }
+
+    .hero-photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 25px;
+      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(52, 211, 153, 0.2), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 21px;
+      object-fit: cover;
+      background: var(--gray-900);
     }
 
     .hero-label {
@@ -925,6 +976,17 @@
 
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-photo {
+        justify-self: center;
+        max-width: 240px;
+        order: -1;
+      }
+
       .about-grid,
       .contact-grid {
         grid-template-columns: 1fr;
@@ -1027,22 +1089,29 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-inner">
-      <div class="hero-label">
-        <span class="dot"></span>
-        Based in Vienna, Austria
+      <div class="hero-content">
+        <div class="hero-label">
+          <span class="dot"></span>
+          Based in Vienna, Austria
+        </div>
+        <h1><span class="visually-hidden">Mano Toth. </span>I build docs that<br>help developers<br><span class="green">ship faster.</span></h1>
+        <p class="hero-text">Documentation engineer blending technical writing, developer experience, and AI tooling to create systems that help developers learn, build, and succeed.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">
+            Get in touch
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#projects" class="btn btn-ghost">
+            View projects
+            <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+        </div>
       </div>
-      <h1><span class="visually-hidden">Mano Toth. </span>I build docs that<br>help developers<br><span class="green">ship faster.</span></h1>
-      <p class="hero-text">Documentation engineer blending technical writing, developer experience, and AI tooling to create systems that help developers learn, build, and succeed.</p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">
-          Get in touch
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#projects" class="btn btn-ghost">
-          View projects
-          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
-      </div>
+      <figure class="hero-photo fade-in">
+        <div class="hero-photo-frame">
+          <img src="assets/profile.jpg" alt="Mano Toth" width="320" height="320" decoding="async">
+        </div>
+      </figure>
     </div>
   </header>
 
