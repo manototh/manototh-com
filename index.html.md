@@ -19,7 +19,7 @@ My path started in academia with a PhD from the University of Cambridge. Then I 
 
 ### Head of Documentation — Axiom
 
-Jan 2024 – Present
+Jan 2024 – Jun 2026
 
 - Design and maintain a docs-as-code platform with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.
 - Author and maintain API documentation, SDK guides, developer tutorials, and code samples for a growing platform.
