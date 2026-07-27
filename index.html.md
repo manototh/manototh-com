@@ -53,7 +53,7 @@ Apr 2018 – Sep 2020
 Agent-native documentation observability with AI referrer detection and LLM-based content evaluation. Collects behavioral signals to show where readers succeed or struggle. Presented at Write the Docs Portland 2026.
 
 - Docs: https://docservable.com
-- GitHub: https://github.com/axiomhq/do11y
+- GitHub: https://github.com/manototh/do11y
 - Blog: https://axiom.co/blog/do11y
 - Stack: TypeScript, observability, AI
 
@@ -61,7 +61,7 @@ Agent-native documentation observability with AI referrer detection and LLM-base
 
 Tool for configuring placeholders in code examples on Mintlify docs sites. Lets users customize code snippets with their own values before copying.
 
-- GitHub: https://github.com/axiomhq/docs-placeholder-configurator
+- GitHub: https://github.com/manototh/docs-placeholder-configurator
 - Blog: https://axiom.co/blog/placeholder-configurator
 - Stack: Mintlify, developer experience, open source
 
