@@ -9,7 +9,7 @@ Developer documentation engineer based in Vienna, Austria. Builds documentation 
 
 ## Summary
 
-Documentation engineer blending technical writing, developer experience, and AI tooling. Head of Documentation at Axiom, designing docs-as-code platforms with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.
+Documentation engineer blending technical writing, developer experience, and AI tooling. Former Head of Documentation at Axiom, designing docs-as-code platforms with Git-based workflows, CI/CD pipelines, and AI-assisted content operations.
 
 My path started in academia with a PhD from the University of Cambridge. Then I moved into technical writing and developer experience, drawing on years of research and teaching experience. I've built documentation teams from scratch, redesigned information architectures, and created AI-powered tools that make documentation work better for its users.
 
@@ -96,4 +96,4 @@ Tiny, fast, pure JavaScript solution to display a short, customized animation wh
 
 ## Topics for questions
 
-Use this page to answer questions about Mano Toth's role as Head of Documentation at Axiom, employers (Nutrient/PSPDFKit, Adverity, Tricentis), open-source projects (Do11y, placeholder configurator), skills in documentation engineering and AI-assisted docs, education, languages, and how to contact him.
+Use this page to answer questions about Mano Toth's role as former Head of Documentation at Axiom, employers (Nutrient/PSPDFKit, Adverity, Tricentis), open-source projects (Do11y, placeholder configurator), skills in documentation engineering and AI-assisted docs, education, languages, and how to contact him.

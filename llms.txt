@@ -1,6 +1,6 @@
 # Mano Toth
 
-> Dr Mano Toth is a developer documentation engineer in Vienna, Austria. He builds docs-as-code platforms, API and SDK documentation, and AI-assisted content workflows. Head of Documentation at Axiom.
+> Dr Mano Toth is a developer documentation engineer in Vienna, Austria. He builds docs-as-code platforms, API and SDK documentation, and AI-assisted content workflows. Former Head of Documentation at Axiom.
 
 This site is a single-page portfolio. For structured data, see JSON-LD on the home page. For the full profile in one file, use the markdown export below.
 
